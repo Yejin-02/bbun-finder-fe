@@ -18,31 +18,33 @@ class BbunCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final scale = screenWidth / 411.42;
     return Container(
-      width: 321,
-      height: 175,
+      width: 321 * scale,
+      height: 175 * scale,
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(15),
+        borderRadius: BorderRadius.circular(15 * scale),
         border: Border.all(
           color: Colors.black,
-          width: 2,
+          width: 2 * scale,
         ),
       ),
       child: Column(
         children: [
           SizedBox(
-            height: 9,
+            height: 9 * scale,
           ),
           Row(
             children: [
               SizedBox(
-                width: 10,
+                width: 10 * scale,
               ),
               Text(
                 "funline sk8ter ID Card",
                 style: TextStyle(
-                  fontSize: 10,
+                  fontSize: 10 * scale,
                   color: Color(0xFF886CD6),
                   fontWeight: FontWeight.w400,
                   height: 1.1,
@@ -52,19 +54,19 @@ class BbunCard extends StatelessWidget {
               Text(
                 ">>>",
                 style: TextStyle(
-                  fontSize: 10,
+                  fontSize: 10 * scale,
                   color: Color(0xFF886CD6),
                   fontWeight: FontWeight.w300,
                   height: 1.1,
                 ),
               ),
               SizedBox(
-                width: 9,
+                width: 9 * scale,
               ),
             ],
           ),
           SizedBox(
-            height: 2,
+            height: 2 * scale,
           ),
           Expanded(
             child: Container(
@@ -78,21 +80,21 @@ class BbunCard extends StatelessWidget {
                 ),
               ),
               padding: EdgeInsets.symmetric(
-                horizontal: 15.5,
-                vertical: 8.5,
+                horizontal: 15.5 * scale,
+                vertical: 8.5 * scale,
               ),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Container(
-                    width: 90,
-                    height: 113.39,
+                    width: 90 * scale,
+                    height: 113.39 * scale,
                     decoration: BoxDecoration(
                       color: Colors.white,
-                      borderRadius: BorderRadius.circular(5),
+                      borderRadius: BorderRadius.circular(5 * scale),
                       border: Border.all(
                         color: Colors.black,
-                        width: 2,
+                        width: 2 * scale,
                       ),
                       image: profileImage != null
                           ? DecorationImage(
@@ -100,11 +102,12 @@ class BbunCard extends StatelessWidget {
                           : null,
                     ),
                     child: profileImage == null
-                        ? const Icon(Icons.person, size: 70, color: Colors.grey)
+                        ? Icon(Icons.person,
+                            size: 70 * scale, color: Colors.grey)
                         : null,
                   ),
                   SizedBox(
-                    width: 10,
+                    width: 10 * scale,
                   ),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -112,67 +115,67 @@ class BbunCard extends StatelessWidget {
                       Text(
                         "NAME",
                         style: TextStyle(
-                          fontSize: 12,
+                          fontSize: 12 * scale,
                           color: Color(0xFF886CD6),
                           fontWeight: FontWeight.w400,
                           height: 1.1,
                         ),
                       ),
                       SizedBox(
-                        height: 3,
+                        height: 3 * scale,
                       ),
                       Text(
                         name,
                         style: TextStyle(
-                          fontSize: 18,
+                          fontSize: 18 * scale,
                           color: Colors.black,
                           fontWeight: FontWeight.w600,
                           height: 1.1,
                         ),
                       ),
                       SizedBox(
-                        height: 5,
+                        height: 5 * scale,
                       ),
                       Text(
                         "STUDENT ID",
                         style: TextStyle(
-                          fontSize: 12,
+                          fontSize: 12 * scale,
                           color: Color(0xFF886CD6),
                           fontWeight: FontWeight.w400,
                           height: 1.1,
                         ),
                       ),
                       SizedBox(
-                        height: 3,
+                        height: 3 * scale,
                       ),
                       Text(
                         studentId,
                         style: TextStyle(
-                          fontSize: 18,
+                          fontSize: 18 * scale,
                           color: Colors.black,
                           fontWeight: FontWeight.w600,
                           height: 1.1,
                         ),
                       ),
                       SizedBox(
-                        height: 5,
+                        height: 5 * scale,
                       ),
                       Text(
                         "E-MAIL",
                         style: TextStyle(
-                          fontSize: 12,
+                          fontSize: 12 * scale,
                           color: Color(0xFF886CD6),
                           fontWeight: FontWeight.w400,
                           height: 1.1,
                         ),
                       ),
                       SizedBox(
-                        height: 3,
+                        height: 3 * scale,
                       ),
                       Text(
                         email,
                         style: TextStyle(
-                          fontSize: 14,
+                          fontSize: 14 * scale,
                           color: Colors.black,
                           fontWeight: FontWeight.w600,
                           height: 1.1,
@@ -190,19 +193,19 @@ class BbunCard extends StatelessWidget {
               Text(
                 "issue date $issueDate",
                 style: TextStyle(
-                  fontSize: 9,
+                  fontSize: 9 * scale,
                   color: Color(0xFF886CD6),
                   fontWeight: FontWeight.w400,
                   height: 1.1,
                 ),
               ),
               SizedBox(
-                width: 10,
+                width: 10 * scale,
               ),
             ],
           ),
           SizedBox(
-            height: 4,
+            height: 4 * scale,
           ),
         ],
       ),
