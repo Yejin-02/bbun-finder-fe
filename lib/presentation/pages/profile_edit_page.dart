@@ -28,7 +28,7 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
   final String dummyStudentId = "20231234";
   final String dummyEmail = "hong@example.com";
   final String dummyIssueDate = "2025-02-15";
-  final bool dummyIsBbunReg = true;
+  final bool dummyIsBbunReg = false;
   ImageProvider? dummyProfileImage;
   String? dummyDepart;
   String? dummyMBTI;
@@ -205,19 +205,20 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
                 ),
                 const SizedBox(height: 20),
 
-                // 개인정보 동의 체크박스
-                BbunCheckbox(
-                  isChecked: isChecked,
-                  onChanged: (value) {
-                    setState(() {
-                      isChecked = value; // 체크 상태 갱신
-                    });
-                  },
-                ),
-                const SizedBox(height: 20),
-
-                // 탈퇴 박스
-                BbunDelete(),
+                dummyIsBbunReg
+                    ?
+                    // 탈퇴 박스
+                    BbunDelete()
+                    :
+                    // 개인정보 동의 체크박스
+                    BbunCheckbox(
+                        isChecked: isChecked,
+                        onChanged: (value) {
+                          setState(() {
+                            isChecked = value; // 체크 상태 갱신
+                          });
+                        },
+                      ),
                 const SizedBox(height: 20),
 
                 // 제출 버튼
