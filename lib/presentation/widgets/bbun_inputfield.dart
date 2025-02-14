@@ -38,22 +38,24 @@ class BbunInputfield extends StatelessWidget {
                 color: Colors.black,
                 fontSize: 18,
                 fontFamily: 'Pretendard',
-                fontWeight: FontWeight.w600,
+                fontWeight: FontWeight.w500,
               ),
             ),
           ),
           const SizedBox(height: 10),
           // Input Field
           Container(
+            height: 44,
             width: double.infinity,
-            padding: const EdgeInsets.symmetric(horizontal: 16),
+            padding: const EdgeInsets.only(left: 16, bottom: 2),
             decoration: ShapeDecoration(
               shape: RoundedRectangleBorder(
                 side: BorderSide(width: 1.50),
-                borderRadius: BorderRadius.circular(38),
+                borderRadius: BorderRadius.circular(22),
               ),
             ),
             child: TextFormField(
+              cursorHeight: 18,
               controller: controller,
               style: TextStyle(
                 color: Colors.black,

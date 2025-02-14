@@ -36,7 +36,7 @@ class BbunDisplayField extends StatelessWidget {
                 color: Colors.black,
                 fontSize: 18,
                 fontFamily: 'Pretendard',
-                fontWeight: FontWeight.w600,
+                fontWeight: FontWeight.w500,
               ),
             ),
           ),
