@@ -49,7 +49,7 @@ class _BbunCheckboxState extends State<BbunCheckbox> {
                           color: Colors.black,
                           fontSize: 18,
                           fontFamily: 'Pretendard',
-                          fontWeight: FontWeight.w600,
+                          fontWeight: FontWeight.w500,
                         ),
                       ),
                       TextSpan(
