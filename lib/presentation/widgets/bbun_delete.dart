@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class BbunDelete extends StatelessWidget {
   const BbunDelete({super.key});
@@ -63,17 +64,9 @@ class BbunDelete extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                SizedBox(
-                  width: 18,
+                SvgPicture.asset(
+                  'assets/icons/delete.svg',
                   height: 18,
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      // assets/svg/delete.svg를 width 18 height 18로 보여주고 싶은 곳
-                    ],
-                  ),
                 ),
                 const SizedBox(width: 10),
                 Text(
