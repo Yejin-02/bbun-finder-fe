@@ -1,0 +1,62 @@
+import 'package:flutter/material.dart';
+
+class BbunDisplayField extends StatelessWidget {
+  final String labelText;
+  final String displayText;
+
+  const BbunDisplayField({
+    super.key,
+    required this.labelText,
+    required this.displayText,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 321,
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 12),
+      decoration: ShapeDecoration(
+        shape: RoundedRectangleBorder(
+          side: BorderSide(width: 1.50),
+          borderRadius: BorderRadius.circular(16),
+        ),
+      ),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          // Label Text
+          Container(
+            width: double.infinity,
+            padding: const EdgeInsets.symmetric(horizontal: 7),
+            child: Text(
+              labelText,
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: 18,
+                fontFamily: 'Pretendard',
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+          ),
+          const SizedBox(height: 8),
+          // Display Text (non-editable)
+          Container(
+            width: double.infinity,
+            padding: const EdgeInsets.symmetric(horizontal: 7),
+            child: Text(
+              displayText,
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: 18,
+                fontFamily: 'Pretendard',
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
