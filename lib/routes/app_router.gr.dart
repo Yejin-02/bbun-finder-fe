@@ -25,3 +25,19 @@ class OnboardingRoute extends PageRouteInfo<void> {
     },
   );
 }
+
+/// generated route for
+/// [ProfileEditPage]
+class ProfileEditRoute extends PageRouteInfo<void> {
+  const ProfileEditRoute({List<PageRouteInfo>? children})
+    : super(ProfileEditRoute.name, initialChildren: children);
+
+  static const String name = 'ProfileEditRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const ProfileEditPage();
+    },
+  );
+}
