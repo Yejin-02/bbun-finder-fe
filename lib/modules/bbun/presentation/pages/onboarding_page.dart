@@ -163,7 +163,15 @@ class OnboardingPage extends StatelessWidget {
                       child: BbunPressable(
                         onPressed: () {
                           context.read<AuthBloc>().add(const AuthEvent.login());
-                          context.router.push(const MainRoute());
+                          context.read<AuthBloc>().stream.listen((state) {
+                            if (state.hasUser) {
+                              context.router.push(const MainRoute());
+                            } else if (state.hasError) {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(content: Text('로그인에 실패했습니다')),
+                              );
+                            }
+                          });
                         },
                         decoration: BoxDecoration(
                           color: Color(0xFFFFE24A),
