@@ -20,7 +20,6 @@ class BbunCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
     final scale = screenWidth / 411.42;
-
     return Container(
       width: 321 * scale,
       height: 175 * scale,
