@@ -7,6 +7,7 @@ import 'package:bbun/presentation/widgets/bbun_inputfield.dart';
 import 'package:bbun/presentation/widgets/bbun_pressable.dart';
 import 'package:flutter/material.dart';
 import 'package:bbun/routes/app_router.dart';
+import 'package:flutter_svg/svg.dart';
 
 @RoutePage()
 class ProfileEditPage extends StatefulWidget {
@@ -21,14 +22,14 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
 
   final TextEditingController departmentController = TextEditingController();
   final TextEditingController mbtiController = TextEditingController();
-  final TextEditingController instagramController = TextEditingController();
+  final TextEditingController igIdController = TextEditingController();
 
   // dummy
   final String dummyName = "홍길동";
   final String dummyStudentId = "20231234";
   final String dummyEmail = "hong@example.com";
   final String dummyIssueDate = "2025-02-15";
-  final bool dummyIsBbunReg = false;
+  final bool dummyIsBbunReg = true;
   ImageProvider? dummyProfileImage;
   String? dummyDepart;
   String? dummyMBTI;
@@ -39,7 +40,7 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
     // 위젯이 파괴될 때, 텍스트 컨트롤러를 메모리에서 해제
     departmentController.dispose();
     mbtiController.dispose();
-    instagramController.dispose();
+    igIdController.dispose();
     super.dispose();
   }
 
@@ -145,7 +146,117 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
 
                   SizedBox(
                     width: 321,
-                    child: Expanded(
+                    child: GestureDetector(
+                      onTap: () {
+                        // 사진 변경 클릭 시 생기는 바텀 시트
+                        showModalBottomSheet(
+                            context: context,
+                            backgroundColor: Colors.transparent,
+                            builder: (BuildContext context) {
+                              return Container(
+                                height: 180,
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.only(
+                                    topLeft: Radius.circular(16),
+                                    topRight: Radius.circular(16),
+                                  ),
+                                ),
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: 28, vertical: 5),
+                                child: Column(
+                                  children: [
+                                    Container(
+                                      width: 68,
+                                      height: 5,
+                                      decoration: ShapeDecoration(
+                                        color: Color(0xFFE3E3E3),
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                        ),
+                                      ),
+                                    ),
+                                    const SizedBox(height: 25),
+                                    // 라이브러리에서 선택
+                                    SizedBox(
+                                      width: double.infinity,
+                                      child: GestureDetector(
+                                        onTap: () {
+                                          // TODO: 라이브러리에서 선택 로직 구현
+                                          print("라이브러리에서 선택");
+                                          Navigator.pop(context);
+                                        },
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.min,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.center,
+                                          children: [
+                                            SvgPicture.asset(
+                                              'assets/icons/gallery.svg',
+                                              width: 18,
+                                            ),
+                                            const SizedBox(width: 15),
+                                            Text(
+                                              '라이브러리에서 선택',
+                                              textAlign: TextAlign.center,
+                                              style: TextStyle(
+                                                color: Colors.black,
+                                                fontSize: 18,
+                                                fontFamily: 'Pretendard',
+                                                fontWeight: FontWeight.w500,
+                                                height: 1,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                    const SizedBox(height: 30),
+
+                                    // 현재 사진 삭제
+                                    SizedBox(
+                                      width: double.infinity,
+                                      child: GestureDetector(
+                                        onTap: () {
+                                          // TODO: 현재 사진 삭제 로직 구현
+                                          print("현재 사진 삭제");
+                                          Navigator.pop(context);
+                                        },
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.min,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.center,
+                                          children: [
+                                            SvgPicture.asset(
+                                              'assets/icons/delete.svg',
+                                              width: 18,
+                                            ),
+                                            const SizedBox(width: 15),
+                                            Text(
+                                              '현재 사진 삭제',
+                                              textAlign: TextAlign.center,
+                                              style: TextStyle(
+                                                color: Color(0xFFF10000),
+                                                fontSize: 18,
+                                                fontFamily: 'Pretendard',
+                                                fontWeight: FontWeight.w500,
+                                                height: 1,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              );
+                            });
+                      },
                       child: Text(
                         '사진 변경',
                         textAlign: TextAlign.center,
@@ -179,8 +290,9 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
                   // 학과 (변경 가능)
                   BbunInputfield(
                     labelText: '학과 (선택)',
-                    hintText:
-                        (dummyDepart != null) ? dummyDepart! : '학과를 입력하세요',
+                    hintText: (dummyDepart != null && dummyDepart!.isNotEmpty)
+                        ? dummyDepart!
+                        : '학과를 입력하세요',
                     controller: departmentController,
                   ),
                   const SizedBox(height: 10),
@@ -188,7 +300,9 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
                   // MBTI (변경 가능)
                   BbunInputfield(
                     labelText: 'MBTI (선택)',
-                    hintText: (dummyMBTI != null) ? dummyMBTI! : 'MBTI를 입력하세요',
+                    hintText: (dummyMBTI != null && dummyMBTI!.isNotEmpty)
+                        ? dummyMBTI!
+                        : 'MBTI를 입력하세요',
                     controller: mbtiController,
                   ),
                   const SizedBox(height: 10),
@@ -196,9 +310,10 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
                   // 인스타그램 아이디 (변경 가능)
                   BbunInputfield(
                     labelText: '인스타그램 아이디 (선택)',
-                    hintText:
-                        (dummyIGID != null) ? dummyIGID! : '인스타그램 아이디를 입력하세요',
-                    controller: instagramController,
+                    hintText: (dummyIGID != null && dummyIGID!.isNotEmpty)
+                        ? dummyIGID!
+                        : '인스타그램 아이디를 입력하세요',
+                    controller: igIdController,
                   ),
                   const SizedBox(height: 20),
 
@@ -222,10 +337,15 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
                   SizedBox(
                     width: 317,
                     child: BbunPressable(
-                      onPressed: () {
-                        // TODO: 제출 버튼 클릭 시 처리할 로직으로 수정
-                        print("제출 버튼 클릭됨");
-                      },
+                      onPressed: (!isChecked & !dummyIsBbunReg)
+                          ? null
+                          : () {
+                              setState(() {
+                                dummyDepart = departmentController.text;
+                                dummyMBTI = mbtiController.text;
+                                dummyIGID = igIdController.text;
+                              });
+                            },
                       decoration: BoxDecoration(
                         color: !isChecked & !dummyIsBbunReg
                             ? Color(0xFFE2E2E2)
