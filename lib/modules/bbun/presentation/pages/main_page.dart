@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:bbun/gen/assets.gen.dart';
 import 'package:bbun/modules/bbun/presentation/widgets/bbun_pressable.dart';
 import 'package:bbun/modules/user/presentation/bloc/auth_bloc.dart';
 import 'package:flutter/material.dart';
@@ -30,7 +31,7 @@ class _MainPageState extends State<MainPage>
   ];
 
   final List<BbunCard> _cards = List.generate(
-    4,
+    1,
     (index) => BbunCard(
       name: "양예진",
       studentId: "2021512$index",
@@ -90,48 +91,49 @@ class _MainPageState extends State<MainPage>
                       top: 0,
                       left: 0,
                       child: Container(
-                        width: screenWidth,
-                        decoration: BoxDecoration(
-                          gradient: LinearGradient(
-                            colors: [
-                              Color(0xFFFDFD96),
-                              Color(0xFFFBFBFB),
-                            ],
-                            begin: Alignment.topCenter,
-                            end: Alignment.bottomCenter,
-                          ),
-                        ),
-                        child: SvgPicture.asset(
-                          "assets/icons/main_page_deco.svg",
                           width: screenWidth,
-                        ),
-                      ),
+                          decoration: BoxDecoration(
+                            gradient: LinearGradient(
+                              colors: [
+                                Color(0xFFFDFD96),
+                                Color(0xFFFBFBFB),
+                              ],
+                              begin: Alignment.topCenter,
+                              end: Alignment.bottomCenter,
+                            ),
+                          ),
+                          child: Assets.icons.mainPageDeco
+                              .svg(width: screenWidth)),
                     ),
                     Positioned(
                       top: 216 * scale,
                       left: 44 * scale,
-                      child: Text(
-                        "뻔라인",
-                        textAlign: TextAlign.left,
-                        style: TextStyle(
-                          fontFamily: 'HSSanTokki',
-                          fontSize: 50 * scale,
-                          fontWeight: FontWeight.w400,
-                          height: 0,
-                        ),
-                      ),
-                    ),
-                    Positioned(
-                      top: 285 * scale,
-                      left: 44 * scale,
-                      child: Text(
-                        "뻔카드 확인을 위해서 최초 프로필 등록이 필\n요합니다. 프로필 등록을 마친 후 뻔라인과 뻔\n카드를 확인해보세요.",
-                        textAlign: TextAlign.left,
-                        style: TextStyle(
-                          fontSize: 18 * scale,
-                          fontWeight: FontWeight.w500,
-                          height: 1,
-                        ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "뻔라인",
+                            textAlign: TextAlign.left,
+                            style: TextStyle(
+                              fontFamily: 'HSSanTokki',
+                              fontSize: 50 * scale,
+                              fontWeight: FontWeight.w400,
+                              height: 0,
+                            ),
+                          ),
+                          SizedBox(
+                            height: 20 * scale,
+                          ),
+                          Text(
+                            "뻔카드 확인을 위해서 최초 프로필 등록이 필\n요합니다. 프로필 등록을 마친 후 뻔라인과 뻔\n카드를 확인해보세요.",
+                            textAlign: TextAlign.left,
+                            style: TextStyle(
+                              fontSize: 18 * scale,
+                              fontWeight: FontWeight.w500,
+                              height: 1,
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                     ...List.generate(
@@ -177,7 +179,7 @@ class _MainPageState extends State<MainPage>
               ),
               Container(
                 width: screenWidth,
-                height: 257,
+                height: 257 * scale,
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
                     colors: [

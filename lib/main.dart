@@ -6,13 +6,11 @@ import 'package:flutter/material.dart';
 import 'package:bbun/routes/app_router.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:flutter_web_frame/flutter_web_frame.dart';
 
 void main() {
   dotenv.load();
   configureDependencies();
-  if (!sl.isRegistered<AuthBloc>()) {
-    throw Exception("AuthBloc이 GetIt에 등록되지 않았습니다!");
-  }
   _initBloc();
   runApp(MyApp());
 }
@@ -24,17 +22,23 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
-      providers: [
-        BlocProvider(
-          lazy: false,
-          create: (_) => sl<AuthBloc>()..add(const AuthEvent.load()),
-        ),
-      ],
-      child: MaterialApp.router(
-        debugShowCheckedModeBanner: false,
-        routerConfig: appRouter.config(),
-      ),
+    return FlutterWebFrame(
+      builder: (context) {
+        return MultiBlocProvider(
+          providers: [
+            BlocProvider(
+              lazy: false,
+              create: (_) => sl<AuthBloc>()..add(const AuthEvent.load()),
+            ),
+          ],
+          child: MaterialApp.router(
+            debugShowCheckedModeBanner: false,
+            routerConfig: appRouter.config(),
+          ),
+        );
+      },
+      maximumSize: Size(475, 812),
+      backgroundColor: Color(0xFFEEEEEE),
     );
   }
 }
