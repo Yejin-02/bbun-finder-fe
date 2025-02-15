@@ -15,13 +15,10 @@ class BbunInputfield extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 321,
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 12),
-      decoration: ShapeDecoration(
-        shape: RoundedRectangleBorder(
-          side: BorderSide(width: 1.50),
-          borderRadius: BorderRadius.circular(16),
-        ),
+      decoration: BoxDecoration(
+        border: Border.all(width: 1.50),
+        borderRadius: BorderRadius.circular(16),
       ),
       child: Column(
         mainAxisSize: MainAxisSize.min,
@@ -44,13 +41,10 @@ class BbunInputfield extends StatelessWidget {
           const SizedBox(height: 10),
           // Input Field
           Container(
-            width: double.infinity,
-            padding: const EdgeInsets.only(left: 16, bottom: 2),
-            decoration: ShapeDecoration(
-              shape: RoundedRectangleBorder(
-                side: BorderSide(width: 1.50),
-                borderRadius: BorderRadius.circular(22),
-              ),
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 2),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(22),
+              border: Border.all(width: 1.50),
             ),
             child: TextFormField(
               cursorHeight: 18,

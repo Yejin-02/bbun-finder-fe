@@ -8,25 +8,19 @@ class BbunDelete extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 321,
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 12),
-      decoration: ShapeDecoration(
-        shape: RoundedRectangleBorder(
-          side: BorderSide(width: 1.50),
-          borderRadius: BorderRadius.circular(16),
-        ),
+      decoration: BoxDecoration(
+        border: Border.all(width: 1.50),
+        borderRadius: BorderRadius.circular(16),
       ),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Container(
-            width: double.infinity,
-            height: 68,
             padding: const EdgeInsets.symmetric(horizontal: 7),
             child: Column(
-              mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -48,79 +42,80 @@ class BbunDelete extends StatelessWidget {
                     fontWeight: FontWeight.w500,
                   ),
                 ),
-              ],
-            ),
-          ),
-          const SizedBox(height: 14),
-          Container(
-            height: 25,
-            padding: const EdgeInsets.only(left: 8, right: 8, bottom: 7),
-            child: GestureDetector(
-              onTap: () {
-                showCupertinoDialog(
-                  context: context,
-                  builder: (BuildContext context) {
-                    return CupertinoAlertDialog(
-                      title: Text('정말 탈퇴하시겠습니까?'),
-                      content: Text('회원 탈퇴 시 모든 정보가 삭제되며 더이상 서비스를 이용할 수 없습니다.'),
-                      actions: [
-                        CupertinoDialogAction(
-                          child: Text(
-                            '취소',
-                            style: TextStyle(
-                              fontSize: 18,
-                              color: CupertinoColors.activeBlue,
-                              fontFamily: 'Pretendard',
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                          onPressed: () {
-                            Navigator.pop(context);
-                          },
+                const SizedBox(height: 10),
+                Container(
+                  padding: const EdgeInsets.only(left: 4),
+                  child: GestureDetector(
+                    onTap: () {
+                      showCupertinoDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return CupertinoAlertDialog(
+                            title: Text('정말 탈퇴하시겠습니까?'),
+                            content: Text(
+                                '회원 탈퇴 시 모든 정보가 삭제되며 더이상 서비스를 이용할 수 없습니다.'),
+                            actions: [
+                              CupertinoDialogAction(
+                                child: Text(
+                                  '취소',
+                                  style: TextStyle(
+                                    fontSize: 18,
+                                    color: CupertinoColors.activeBlue,
+                                    fontFamily: 'Pretendard',
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                                onPressed: () {
+                                  Navigator.pop(context);
+                                },
+                              ),
+                              CupertinoDialogAction(
+                                isDestructiveAction: true,
+                                child: Text(
+                                  '탈퇴',
+                                  style: TextStyle(
+                                    fontSize: 18,
+                                    color: Color(0xFFF10000),
+                                    fontFamily: 'Pretendard',
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                                onPressed: () {
+                                  // TODO: 탈퇴 로직 구현
+                                  print('탈퇴');
+                                  Navigator.pop(context);
+                                },
+                              ),
+                            ],
+                          );
+                        },
+                      );
+                    },
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        SvgPicture.asset(
+                          'assets/icons/delete.svg',
+                          height: 18,
                         ),
-                        CupertinoDialogAction(
-                          isDestructiveAction: true,
+                        const SizedBox(width: 12),
+                        Expanded(
                           child: Text(
-                            '탈퇴',
+                            '탈퇴하기',
                             style: TextStyle(
-                              fontSize: 18,
                               color: Color(0xFFF10000),
+                              fontSize: 18,
                               fontFamily: 'Pretendard',
                               fontWeight: FontWeight.w500,
                             ),
                           ),
-                          onPressed: () {
-                            // TODO: 탈퇴 로직 구현
-                            print('탈퇴');
-                            Navigator.pop(context);
-                          },
                         ),
                       ],
-                    );
-                  },
-                );
-              },
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  SvgPicture.asset(
-                    'assets/icons/delete.svg',
-                    height: 18,
-                  ),
-                  const SizedBox(width: 10),
-                  Text(
-                    '탈퇴하기',
-                    style: TextStyle(
-                      color: Color(0xFFF10000),
-                      fontSize: 18,
-                      fontFamily: 'Pretendard',
-                      fontWeight: FontWeight.w500,
-                      height: 1,
                     ),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
         ],

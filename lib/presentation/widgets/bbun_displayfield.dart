@@ -13,13 +13,10 @@ class BbunDisplayField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 321,
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 12),
-      decoration: ShapeDecoration(
-        shape: RoundedRectangleBorder(
-          side: BorderSide(width: 1.50),
-          borderRadius: BorderRadius.circular(16),
-        ),
+      decoration: BoxDecoration(
+        border: Border.all(width: 1.50),
+        borderRadius: BorderRadius.circular(16),
       ),
       child: Column(
         mainAxisSize: MainAxisSize.min,

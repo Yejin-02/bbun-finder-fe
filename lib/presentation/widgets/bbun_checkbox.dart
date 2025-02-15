@@ -20,11 +20,9 @@ class _BbunCheckboxState extends State<BbunCheckbox> {
     return Container(
       width: 321,
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 12),
-      decoration: ShapeDecoration(
-        shape: RoundedRectangleBorder(
-          side: BorderSide(width: 1.50),
-          borderRadius: BorderRadius.circular(16),
-        ),
+      decoration: BoxDecoration(
+        border: Border.all(width: 1.50),
+        borderRadius: BorderRadius.circular(16),
       ),
       child: Column(
         mainAxisSize: MainAxisSize.min,
@@ -73,16 +71,13 @@ class _BbunCheckboxState extends State<BbunCheckbox> {
                   child: Container(
                     width: 20,
                     height: 20,
-                    decoration: ShapeDecoration(
+                    decoration: BoxDecoration(
                       color:
                           widget.isChecked ? Color(0xFFFFE24A) : Colors.white,
-                      shape: RoundedRectangleBorder(
-                        side: BorderSide(
-                          width: 1.50,
-                          color: widget.isChecked
-                              ? Color(0xFFFFE24A)
-                              : Colors.black,
-                        ),
+                      border: Border.all(
+                        width: 1.50,
+                        color:
+                            widget.isChecked ? Color(0xFFFFE24A) : Colors.black,
                       ),
                     ),
                     child: widget.isChecked

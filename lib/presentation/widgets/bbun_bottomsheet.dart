@@ -7,13 +7,13 @@ class BbunBottomsheet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 180,
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
       ),
       padding: const EdgeInsets.symmetric(horizontal: 28, vertical: 5),
       child: Column(
+        mainAxisSize: MainAxisSize.min,
         children: [
           Container(
             width: 68,
@@ -26,7 +26,6 @@ class BbunBottomsheet extends StatelessWidget {
           const SizedBox(height: 25),
           // 라이브러리에서 선택
           SizedBox(
-            width: double.infinity,
             child: GestureDetector(
               onTap: () {
                 // TODO: 라이브러리에서 선택 로직 구현
@@ -34,8 +33,6 @@ class BbunBottomsheet extends StatelessWidget {
                 Navigator.pop(context);
               },
               child: Row(
-                mainAxisSize: MainAxisSize.min,
-                mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   SvgPicture.asset(
@@ -63,7 +60,6 @@ class BbunBottomsheet extends StatelessWidget {
 
           // 현재 사진 삭제
           SizedBox(
-            width: double.infinity,
             child: GestureDetector(
               onTap: () {
                 // TODO: 현재 사진 삭제 로직 구현
@@ -71,8 +67,6 @@ class BbunBottomsheet extends StatelessWidget {
                 Navigator.pop(context);
               },
               child: Row(
-                mainAxisSize: MainAxisSize.min,
-                mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   SvgPicture.asset(
@@ -95,7 +89,8 @@ class BbunBottomsheet extends StatelessWidget {
                 ],
               ),
             ),
-          )
+          ),
+          SizedBox(height: 60),
         ],
       ),
     );
