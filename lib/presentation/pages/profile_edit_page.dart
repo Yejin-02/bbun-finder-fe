@@ -281,7 +281,7 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
                   // 이메일 (변경 불가)
                   BbunDisplayField(
                     labelText: '이메일',
-                    displayText: dummyStudentId,
+                    displayText: dummyEmail,
                   ),
                   const SizedBox(height: 10),
 
@@ -335,7 +335,7 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
                   SizedBox(
                     width: 317,
                     child: BbunPressable(
-                      onPressed: (!isChecked & !dummyIsBbunReg)
+                      onPressed: (!isChecked && !dummyIsBbunReg)
                           ? null
                           : () {
                               setState(() {
@@ -345,11 +345,11 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
                               });
                             },
                       decoration: BoxDecoration(
-                        color: !isChecked & !dummyIsBbunReg
+                        color: !isChecked && !dummyIsBbunReg
                             ? Color(0xFFE2E2E2)
                             : Color(0xFFFFE24A),
                         borderRadius: BorderRadius.circular(38),
-                        border: !isChecked & !dummyIsBbunReg
+                        border: !isChecked && !dummyIsBbunReg
                             ? Border.all(
                                 color: Colors.transparent, // 기본 상태에서는 테두리 없음
                               )
@@ -364,7 +364,7 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
                           child: Text(
                             dummyIsBbunReg ? "수정" : "제출",
                             style: TextStyle(
-                                color: !isChecked & !dummyIsBbunReg
+                                color: !isChecked && !dummyIsBbunReg
                                     ? Color(0xFFB6B6B6)
                                     : Colors.black,
                                 fontSize: 18,
