@@ -1,13 +1,13 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:bbun/presentation/widgets/bbun_bottomsheet.dart';
 import 'package:bbun/presentation/widgets/bbun_card.dart';
 import 'package:bbun/presentation/widgets/bbun_checkbox.dart';
 import 'package:bbun/presentation/widgets/bbun_delete.dart';
 import 'package:bbun/presentation/widgets/bbun_displayfield.dart';
 import 'package:bbun/presentation/widgets/bbun_inputfield.dart';
 import 'package:bbun/presentation/widgets/bbun_pressable.dart';
-import 'package:flutter/material.dart';
 import 'package:bbun/routes/app_router.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:flutter/material.dart';
 
 @RoutePage()
 class ProfileEditPage extends StatefulWidget {
@@ -59,8 +59,8 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
               height: 257,
               decoration: BoxDecoration(
                 gradient: LinearGradient(
-                  begin: Alignment(-0.00, 1.00),
-                  end: Alignment(0, -1),
+                  begin: Alignment.bottomCenter,
+                  end: Alignment.topCenter,
                   colors: [Color(0xFFFBFBFB), Color(0xFFFDFD96)],
                 ),
               ),
@@ -75,8 +75,8 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
                   height: 257,
                   decoration: BoxDecoration(
                       gradient: LinearGradient(
-                          begin: Alignment(-0.00, 1.00),
-                          end: Alignment(0, -1),
+                          begin: Alignment.bottomCenter,
+                          end: Alignment.topCenter,
                           colors: [Color(0xFFFDFD96), Color(0xFFFBFBFB)])),
                 )),
 
@@ -151,108 +151,7 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
                             context: context,
                             backgroundColor: Colors.transparent,
                             builder: (BuildContext context) {
-                              return Container(
-                                height: 180,
-                                decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.only(
-                                    topLeft: Radius.circular(16),
-                                    topRight: Radius.circular(16),
-                                  ),
-                                ),
-                                padding: const EdgeInsets.symmetric(
-                                    horizontal: 28, vertical: 5),
-                                child: Column(
-                                  children: [
-                                    Container(
-                                      width: 68,
-                                      height: 5,
-                                      decoration: ShapeDecoration(
-                                        color: Color(0xFFE3E3E3),
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(10),
-                                        ),
-                                      ),
-                                    ),
-                                    const SizedBox(height: 25),
-                                    // 라이브러리에서 선택
-                                    SizedBox(
-                                      width: double.infinity,
-                                      child: GestureDetector(
-                                        onTap: () {
-                                          // TODO: 라이브러리에서 선택 로직 구현
-                                          print("라이브러리에서 선택");
-                                          Navigator.pop(context);
-                                        },
-                                        child: Row(
-                                          mainAxisSize: MainAxisSize.min,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.start,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.center,
-                                          children: [
-                                            SvgPicture.asset(
-                                              'assets/icons/gallery.svg',
-                                              width: 18,
-                                            ),
-                                            const SizedBox(width: 15),
-                                            Text(
-                                              '라이브러리에서 선택',
-                                              textAlign: TextAlign.center,
-                                              style: TextStyle(
-                                                color: Colors.black,
-                                                fontSize: 18,
-                                                fontFamily: 'Pretendard',
-                                                fontWeight: FontWeight.w500,
-                                                height: 1,
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ),
-                                    const SizedBox(height: 30),
-
-                                    // 현재 사진 삭제
-                                    SizedBox(
-                                      width: double.infinity,
-                                      child: GestureDetector(
-                                        onTap: () {
-                                          // TODO: 현재 사진 삭제 로직 구현
-                                          print("현재 사진 삭제");
-                                          Navigator.pop(context);
-                                        },
-                                        child: Row(
-                                          mainAxisSize: MainAxisSize.min,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.start,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.center,
-                                          children: [
-                                            SvgPicture.asset(
-                                              'assets/icons/delete.svg',
-                                              width: 18,
-                                            ),
-                                            const SizedBox(width: 15),
-                                            Text(
-                                              '현재 사진 삭제',
-                                              textAlign: TextAlign.center,
-                                              style: TextStyle(
-                                                color: Color(0xFFF10000),
-                                                fontSize: 18,
-                                                fontFamily: 'Pretendard',
-                                                fontWeight: FontWeight.w500,
-                                                height: 1,
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              );
+                              return BbunBottomsheet();
                             });
                       },
                       child: Text(

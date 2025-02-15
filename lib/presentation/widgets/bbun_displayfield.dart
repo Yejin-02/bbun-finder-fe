@@ -24,11 +24,10 @@ class BbunDisplayField extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           // Label Text
           Container(
-            width: double.infinity,
             padding: const EdgeInsets.symmetric(horizontal: 7),
             child: Text(
               labelText,

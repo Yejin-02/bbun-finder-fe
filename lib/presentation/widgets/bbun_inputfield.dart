@@ -26,11 +26,10 @@ class BbunInputfield extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           // Label Text
           Container(
-            width: double.infinity,
             padding: const EdgeInsets.symmetric(horizontal: 7),
             child: Text(
               labelText,
@@ -45,7 +44,6 @@ class BbunInputfield extends StatelessWidget {
           const SizedBox(height: 10),
           // Input Field
           Container(
-            height: 44,
             width: double.infinity,
             padding: const EdgeInsets.only(left: 16, bottom: 2),
             decoration: ShapeDecoration(
@@ -56,6 +54,7 @@ class BbunInputfield extends StatelessWidget {
             ),
             child: TextFormField(
               cursorHeight: 18,
+              cursorColor: Color(0xFFFFE24A),
               controller: controller,
               style: TextStyle(
                 color: Colors.black,
@@ -72,6 +71,7 @@ class BbunInputfield extends StatelessWidget {
                   fontWeight: FontWeight.w500,
                 ),
                 border: InputBorder.none,
+                isDense: true,
               ),
             ),
           ),
