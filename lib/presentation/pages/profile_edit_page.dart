@@ -99,8 +99,6 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
                             iconSize: 30,
                             onPressed: () {
                               //TODO: 뒤로가기 클릭 시 디테일 화면으로 연결
-                              context.pushRoute(
-                                  OnboardingRoute()); // TODO: 삭제필(온보딩 화면 이동)
                               print("뒤로가기 클릭");
                             },
                           ),

@@ -39,7 +39,6 @@ class OnboardingPage extends StatelessWidget {
               child: BbunPressable(
                 onPressed: () {
                   print('Button Pressed'); // 메인 화면 만들고 라우팅 해줘야하는 부분
-                  context.pushRoute(ProfileEditRoute()); // /profile-edit로 이동
                 },
                 decoration: BoxDecoration(
                   color: Color(0xFFFFE24A),
