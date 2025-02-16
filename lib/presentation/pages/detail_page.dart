@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:bbun/presentation/widgets/bbun_notebook.dart';
 import 'package:bbun/presentation/widgets/bbun_pressable.dart';
+import 'package:bbun/routes/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -17,6 +18,7 @@ class _DetailPageState extends State<DetailPage>
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
+    final scale = screenWidth / 411.42;
 
     return Scaffold(
         backgroundColor: Color(0xFFFBFBFB),
@@ -31,8 +33,7 @@ class _DetailPageState extends State<DetailPage>
             child: Column(
               children: [
                 Container(
-                  width: screenWidth,
-                  constraints: BoxConstraints(maxWidth: 393),
+                  width: screenWidth > 430 ? 430 : screenWidth,
                   height: 257,
                   decoration: BoxDecoration(
                     gradient: LinearGradient(
@@ -44,6 +45,7 @@ class _DetailPageState extends State<DetailPage>
                   child: SvgPicture.asset(
                     "assets/icons/detail_page_deco.svg",
                     width: screenWidth,
+                    fit: BoxFit.fitWidth,
                   ),
                 ),
               ],
@@ -58,8 +60,7 @@ class _DetailPageState extends State<DetailPage>
               child: Column(
                 children: [
                   Container(
-                    width: screenWidth,
-                    constraints: BoxConstraints(maxWidth: 393),
+                    width: screenWidth > 430 ? 430 : screenWidth,
                     height: 257,
                     decoration: BoxDecoration(
                         gradient: LinearGradient(
@@ -80,10 +81,7 @@ class _DetailPageState extends State<DetailPage>
 
                 // 학생 이름
                 Container(
-                  constraints: BoxConstraints(
-                    maxWidth: 393,
-                  ),
-                  width: screenWidth,
+                  width: screenWidth > 430 ? 430 : screenWidth,
                   padding: const EdgeInsets.symmetric(horizontal: 36),
                   child: Text(
                     '홍길동',
@@ -99,11 +97,12 @@ class _DetailPageState extends State<DetailPage>
 
                 // 노트 부분
                 BbunNotebook(),
-                SizedBox(height: 50),
+                SizedBox(
+                    height: 50 * (screenWidth > 430 ? (430 / 411.42) : scale)),
+
                 // 하단 버튼
                 Container(
-                  width: screenWidth,
-                  constraints: BoxConstraints(maxWidth: 393),
+                  width: screenWidth > 430 ? 430 : screenWidth,
                   padding:
                       const EdgeInsets.symmetric(vertical: 10, horizontal: 36),
                   child: Row(
@@ -114,7 +113,9 @@ class _DetailPageState extends State<DetailPage>
                           width: 50,
                           height: 50,
                           child: BbunPressable(
-                              onPressed: () {},
+                              onPressed: () {
+                                // TODO: 디테일 페이지 넘기기 구현
+                              },
                               decoration: BoxDecoration(
                                 color: Color(0xFFFFE24A),
                                 border: Border.all(
@@ -127,32 +128,38 @@ class _DetailPageState extends State<DetailPage>
                                   child: Icon(Icons.keyboard_arrow_left,
                                       size: 30)))),
                       SizedBox(
-                          width: 100,
+                          width: 110,
                           height: 50,
-                          child: BbunPressable(
-                              onPressed: () {},
-                              decoration: BoxDecoration(
-                                  color: Color(0xFFFFE24A),
-                                  border: Border.all(
+                          child: Flexible(
+                            child: BbunPressable(
+                                onPressed: () {
+                                  context.pushRoute(MainRoute());
+                                },
+                                decoration: BoxDecoration(
+                                    color: Color(0xFFFFE24A),
+                                    border: Border.all(
+                                      color: Colors.black,
+                                      width: 1.5,
+                                    ),
+                                    borderRadius: BorderRadius.circular(25)),
+                                child: Center(
+                                    child: Text(
+                                  '뒤로 가기',
+                                  style: TextStyle(
                                     color: Colors.black,
-                                    width: 1.5,
+                                    fontSize: 18,
+                                    fontFamily: 'Pretendard',
+                                    fontWeight: FontWeight.w600,
                                   ),
-                                  borderRadius: BorderRadius.circular(25)),
-                              child: Center(
-                                  child: Text(
-                                '뒤로가기',
-                                style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 18,
-                                  fontFamily: 'Pretendard',
-                                  fontWeight: FontWeight.w600,
-                                ),
-                              )))),
+                                ))),
+                          )),
                       SizedBox(
                           width: 50,
                           height: 50,
                           child: BbunPressable(
-                              onPressed: () {},
+                              onPressed: () {
+                                // TODO: 디테일 페이지 넘기기 구현
+                              },
                               decoration: BoxDecoration(
                                 color: Color(0xFFFFE24A),
                                 border: Border.all(

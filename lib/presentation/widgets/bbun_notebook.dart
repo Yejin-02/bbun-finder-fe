@@ -22,57 +22,64 @@ class _BbunNotebookState extends State<BbunNotebook> {
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
+    final scale = screenWidth / 411.42;
 
-    return Container(
-      width: screenWidth,
-      constraints: BoxConstraints(maxWidth: 393),
-      height: 547,
+    return SizedBox(
+      width: screenWidth > 430 ? 430 : screenWidth,
+      height: 581.01 * (screenWidth > 430 ? (430 / 411.42) : scale),
       child: Stack(
         children: [
           // 노트 속지
-          Image.asset(
-            "images/paper.png",
-            width: screenWidth,
+          Positioned(
+            top: 0,
+            left: 0,
+            child: Image.asset(
+              "assets/images/paper.png",
+              width: screenWidth > 430 ? 430 : screenWidth,
+              fit: BoxFit.fitWidth,
+            ),
           ),
           // 병아리
           Positioned(
-            top: 306,
-            left: 287.73,
+            top: 306 * (screenWidth > 430 ? (430 / 411.42) : scale),
+            left: 290.73 * (screenWidth > 430 ? (430 / 411.42) : scale),
             child: SvgPicture.asset(
               "assets/icons/chick.svg",
-              width: 61.9,
+              width: 61.9 * (screenWidth > 430 ? (430 / 411.42) : scale),
             ),
           ),
+
           // 뻔 카드
           // TODO: 지금 빈 상자라서 진짜 뻔 카드로 교체 필요
           Positioned(
-              top: 60,
-              left: 85.9,
+              top: 63 * (screenWidth > 430 ? (430 / 411.42) : scale),
+              left: 90.195 * (screenWidth > 430 ? (430 / 411.42) : scale),
               child: Transform.rotate(
                 angle: 0.11397,
                 child: Container(
-                  width: 321,
-                  height: 175,
+                  width: 337.05 * (screenWidth > 430 ? (430 / 411.42) : scale),
+                  height: 183.75 * (screenWidth > 430 ? (430 / 411.42) : scale),
                   decoration: BoxDecoration(
                     border: Border.all(width: 1.5),
-                    borderRadius: BorderRadius.circular(15),
+                    borderRadius: BorderRadius.circular(
+                        15 * (screenWidth > 430 ? (430 / 411.42) : scale)),
                     color: Colors.white,
                   ),
                 ),
               )),
           // 별 클립
           Positioned(
-            top: 37,
-            left: 281,
+            top: 38.85 * (screenWidth > 430 ? (430 / 411.42) : scale),
+            left: 295.05 * (screenWidth > 430 ? (430 / 411.42) : scale),
             child: SvgPicture.asset(
               "assets/icons/star_clip.svg",
-              width: 78.45,
+              width: 82.3725 * (screenWidth > 430 ? (430 / 411.42) : scale),
             ),
           ),
           // 학생 상세 정보
           Positioned(
-            top: 360,
-            left: 30,
+            top: 378 * (screenWidth > 430 ? (430 / 411.42) : scale),
+            left: 36 * (screenWidth > 430 ? (430 / 411.42) : scale),
             child: Transform.rotate(
               angle: -0.0523,
               child: Column(
@@ -89,7 +96,7 @@ class _BbunNotebookState extends State<BbunNotebook> {
                         ),
                       ),
                       SizedBox(
-                        width: 8,
+                        width: 8 * (screenWidth > 430 ? (430 / 411.42) : scale),
                       ),
                       Text(
                         '전기전자컴퓨터공학부',
@@ -101,8 +108,13 @@ class _BbunNotebookState extends State<BbunNotebook> {
                       ),
                     ],
                   ),
-                  SvgPicture.asset("assets/icons/devider_1.svg"),
-                  SizedBox(height: 5),
+                  SvgPicture.asset(
+                    "assets/icons/devider_1.svg",
+                    width:
+                        320.96 * (screenWidth > 430 ? (430 / 411.42) : scale),
+                  ),
+                  SizedBox(
+                      height: 5 * (screenWidth > 430 ? (430 / 411.42) : scale)),
                   Row(
                     children: [
                       Text(
@@ -114,7 +126,7 @@ class _BbunNotebookState extends State<BbunNotebook> {
                         ),
                       ),
                       SizedBox(
-                        width: 8,
+                        width: 8 * (screenWidth > 430 ? (430 / 411.42) : scale),
                       ),
                       Text(
                         'ISTJ',
@@ -126,8 +138,13 @@ class _BbunNotebookState extends State<BbunNotebook> {
                       ),
                     ],
                   ),
-                  SvgPicture.asset("assets/icons/devider_2.svg"),
-                  SizedBox(height: 6),
+                  SvgPicture.asset(
+                    "assets/icons/devider_2.svg",
+                    width:
+                        320.96 * (screenWidth > 430 ? (430 / 411.42) : scale),
+                  ),
+                  SizedBox(
+                      height: 6 * (screenWidth > 430 ? (430 / 411.42) : scale)),
                   Row(
                     children: [
                       Text(
@@ -139,7 +156,7 @@ class _BbunNotebookState extends State<BbunNotebook> {
                         ),
                       ),
                       SizedBox(
-                        width: 8,
+                        width: 8 * (screenWidth > 430 ? (430 / 411.42) : scale),
                       ),
                       Text(
                         '@insta',
@@ -151,7 +168,11 @@ class _BbunNotebookState extends State<BbunNotebook> {
                       ),
                     ],
                   ),
-                  SvgPicture.asset("assets/icons/devider_3.svg"),
+                  SvgPicture.asset(
+                    "assets/icons/devider_3.svg",
+                    width:
+                        320.96 * (screenWidth > 430 ? (430 / 411.42) : scale),
+                  ),
                 ],
               ),
             ),
