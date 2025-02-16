@@ -55,14 +55,24 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
         child: Center(
           child: Stack(children: [
             // 상단 그라데이션
-            Container(
-              height: 257,
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  begin: Alignment.bottomCenter,
-                  end: Alignment.topCenter,
-                  colors: [Color(0xFFFBFBFB), Color(0xFFFDFD96)],
-                ),
+            Positioned(
+              top: 0,
+              left: 0,
+              right: 0,
+              child: Column(
+                children: [
+                  Container(
+                    width: screenWidth > 430 ? 430 : screenWidth,
+                    height: 257,
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        begin: Alignment.bottomCenter,
+                        end: Alignment.topCenter,
+                        colors: [Color(0xFFFBFBFB), Color(0xFFFDFD96)],
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
 
@@ -71,13 +81,18 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
                 bottom: 0,
                 left: 0,
                 right: 0,
-                child: Container(
-                  height: 257,
-                  decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                          begin: Alignment.bottomCenter,
-                          end: Alignment.topCenter,
-                          colors: [Color(0xFFFDFD96), Color(0xFFFBFBFB)])),
+                child: Column(
+                  children: [
+                    Container(
+                      width: screenWidth > 430 ? 430 : screenWidth,
+                      height: 257,
+                      decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                              begin: Alignment.bottomCenter,
+                              end: Alignment.topCenter,
+                              colors: [Color(0xFFFDFD96), Color(0xFFFBFBFB)])),
+                    ),
+                  ],
                 )),
 
             Positioned(
@@ -90,10 +105,7 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
 
                   // 뒤로 가기
                   Container(
-                    constraints: BoxConstraints(
-                      maxWidth: 393,
-                    ),
-                    width: screenWidth,
+                    width: screenWidth > 430 ? 430 : screenWidth,
                     padding: const EdgeInsets.symmetric(horizontal: 36),
                     child: Row(
                         mainAxisAlignment: MainAxisAlignment.start,
@@ -104,8 +116,10 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
                               size: 30,
                             ),
                             onTap: () {
-                              //TODO: 뒤로가기 클릭 시 디테일 화면으로 연결
-                              print("뒤로가기 클릭");
+                              // 디테일 -> 프로필 설정 이동(연필 버튼) 구현 전
+                              // 개발 일정 내에 이동 구현 되면 뒤로 가기도 케이스 두 개
+                              // TODO: 그땐 진짜 "뒤"로 가기 버튼으로 바꿔야함
+                              context.pushRoute(MainRoute());
                             },
                           ),
                         ]),
@@ -114,10 +128,7 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
 
                   // 내 프로필
                   Container(
-                    constraints: BoxConstraints(
-                      maxWidth: 393,
-                    ),
-                    width: screenWidth,
+                    width: screenWidth > 430 ? 430 : screenWidth,
                     padding: const EdgeInsets.symmetric(horizontal: 36),
                     child: Text(
                       '내 프로필',
@@ -132,10 +143,7 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
 
                   // 개인 정보 동의 안내
                   Container(
-                    constraints: BoxConstraints(
-                      maxWidth: 393,
-                    ),
-                    width: screenWidth,
+                    width: screenWidth > 430 ? 430 : screenWidth,
                     padding: const EdgeInsets.symmetric(horizontal: 36),
                     child: const Text(
                       "개인 정보 제공에 동의해야 프로필 설정을 완료하고 서비스를 이용할 수 있습니다.",
@@ -158,10 +166,7 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
                   const SizedBox(height: 15),
 
                   Container(
-                    constraints: BoxConstraints(
-                      maxWidth: 393,
-                    ),
-                    width: screenWidth,
+                    width: screenWidth > 430 ? 430 : screenWidth,
                     padding: const EdgeInsets.symmetric(horizontal: 36),
                     child: GestureDetector(
                       onTap: () {
@@ -188,10 +193,7 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
                   const SizedBox(height: 20),
 
                   Container(
-                    constraints: BoxConstraints(
-                      maxWidth: 393,
-                    ),
-                    width: screenWidth,
+                    width: screenWidth > 430 ? 430 : screenWidth,
                     padding: const EdgeInsets.symmetric(horizontal: 36),
                     child: Column(
                       children: [
