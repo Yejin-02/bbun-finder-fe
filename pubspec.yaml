@@ -42,6 +42,7 @@ flutter:
         - asset: assets/fonts/HSSanTokki2.0(2024).ttf
   assets:
     - assets/icons/
+    - assets/images/
 
   uses-material-design: true
 
