@@ -40,6 +40,10 @@ flutter:
     - family: HSSanTokki
       fonts:
         - asset: assets/fonts/HSSanTokki2.0(2024).ttf
+    - family: CornCorn
+      fonts:
+        - asset: assets/fonts/Ownglyphcorncorn.ttf
+
   assets:
     - assets/icons/
     - assets/images/
