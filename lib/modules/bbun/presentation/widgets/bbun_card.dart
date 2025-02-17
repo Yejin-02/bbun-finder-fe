@@ -4,8 +4,11 @@ class BbunCard extends StatelessWidget {
   final String name;
   final String studentId;
   final String email;
-  final String issueDate;
+  final DateTime issueDate;
   final ImageProvider? profileImage;
+  final Color textColor;
+  final Color innerColor;
+  final Color outerColor;
 
   const BbunCard({
     super.key,
@@ -14,6 +17,9 @@ class BbunCard extends StatelessWidget {
     required this.email,
     required this.issueDate,
     this.profileImage,
+    required this.textColor,
+    required this.innerColor,
+    required this.outerColor,
   });
 
   @override
@@ -45,7 +51,7 @@ class BbunCard extends StatelessWidget {
                 "funline sk8ter ID Card",
                 style: TextStyle(
                   fontSize: 10 * scale,
-                  color: Color(0xFF886CD6),
+                  color: textColor,
                   fontWeight: FontWeight.w400,
                   height: 1.1,
                 ),
@@ -55,7 +61,7 @@ class BbunCard extends StatelessWidget {
                 ">>>",
                 style: TextStyle(
                   fontSize: 10 * scale,
-                  color: Color(0xFF886CD6),
+                  color: textColor,
                   fontWeight: FontWeight.w300,
                   height: 1.1,
                 ),
@@ -72,10 +78,7 @@ class BbunCard extends StatelessWidget {
             child: Container(
               decoration: BoxDecoration(
                 gradient: RadialGradient(
-                  colors: [
-                    Color(0xFFDDD1FF),
-                    Color(0xFFA48EE4),
-                  ],
+                  colors: [innerColor, outerColor],
                   radius: 0.92,
                 ),
               ),
@@ -116,7 +119,7 @@ class BbunCard extends StatelessWidget {
                         "NAME",
                         style: TextStyle(
                           fontSize: 12 * scale,
-                          color: Color(0xFF886CD6),
+                          color: textColor,
                           fontWeight: FontWeight.w400,
                           height: 1.1,
                         ),
@@ -140,7 +143,7 @@ class BbunCard extends StatelessWidget {
                         "STUDENT ID",
                         style: TextStyle(
                           fontSize: 12 * scale,
-                          color: Color(0xFF886CD6),
+                          color: textColor,
                           fontWeight: FontWeight.w400,
                           height: 1.1,
                         ),
@@ -164,7 +167,7 @@ class BbunCard extends StatelessWidget {
                         "E-MAIL",
                         style: TextStyle(
                           fontSize: 12 * scale,
-                          color: Color(0xFF886CD6),
+                          color: textColor,
                           fontWeight: FontWeight.w400,
                           height: 1.1,
                         ),
@@ -194,7 +197,7 @@ class BbunCard extends StatelessWidget {
                 "issue date $issueDate",
                 style: TextStyle(
                   fontSize: 9 * scale,
-                  color: Color(0xFF886CD6),
+                  color: textColor,
                   fontWeight: FontWeight.w400,
                   height: 1.1,
                 ),
