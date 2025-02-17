@@ -9,6 +9,15 @@
 // coverage:ignore-file
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
+import 'package:bbun/modules/bbun/data/data_sources/remote/bbun_api.dart'
+    as _i708;
+import 'package:bbun/modules/bbun/data/repositories/rest_bbun_repository.dart'
+    as _i517;
+import 'package:bbun/modules/bbun/domain/repositories/bbun_repository.dart'
+    as _i803;
+import 'package:bbun/modules/bbun/presentation/bloc/bbun_bloc.dart' as _i636;
+import 'package:bbun/modules/bbun/presentation/bloc/bbun_list_bloc.dart'
+    as _i754;
 import 'package:bbun/modules/core/data/dio/bbun_dio.dart' as _i328;
 import 'package:bbun/modules/core/data/repositories/memory_api_channel_repository.dart'
     as _i668;
@@ -68,6 +77,7 @@ extension GetItInjectableX on _i174.GetIt {
       dispose: _i668.MemoryApiChannelRepository.dispose,
     );
     gh.factory<_i451.UserApi>(() => _i451.UserApi(gh<_i328.BbunDio>()));
+    gh.factory<_i708.BbunApi>(() => _i708.BbunApi(gh<_i328.BbunDio>()));
     gh.singleton<_i226.RestAuthRepository>(
       () => _i19.BbunRestAuthRepository(
         gh<_i451.UserApi>(),
@@ -79,8 +89,14 @@ extension GetItInjectableX on _i174.GetIt {
       ),
       instanceName: 'BbunRestAuthRepository',
     );
+    gh.factory<_i803.BbunRepository>(
+        () => _i517.RestBbunRepository(gh<_i708.BbunApi>()));
     gh.factory<_i213.AuthBloc>(() => _i213.AuthBloc(
         gh<_i226.RestAuthRepository>(instanceName: 'BbunRestAuthRepository')));
+    gh.factory<_i636.BbunBloc>(
+        () => _i636.BbunBloc(gh<_i803.BbunRepository>()));
+    gh.factory<_i754.BbunListBloc>(
+        () => _i754.BbunListBloc(gh<_i803.BbunRepository>()));
     return this;
   }
 }
