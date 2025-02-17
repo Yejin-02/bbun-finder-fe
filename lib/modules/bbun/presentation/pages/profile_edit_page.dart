@@ -1,11 +1,11 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:bbun/presentation/widgets/bbun_bottomsheet.dart';
-import 'package:bbun/presentation/widgets/bbun_card.dart';
-import 'package:bbun/presentation/widgets/bbun_checkbox.dart';
-import 'package:bbun/presentation/widgets/bbun_delete.dart';
-import 'package:bbun/presentation/widgets/bbun_displayfield.dart';
-import 'package:bbun/presentation/widgets/bbun_inputfield.dart';
-import 'package:bbun/presentation/widgets/bbun_pressable.dart';
+import 'package:bbun/modules/bbun/presentation/widgets/bbun_bottomsheet.dart';
+import 'package:bbun/modules/bbun/presentation/widgets/bbun_card.dart';
+import 'package:bbun/modules/bbun/presentation/widgets/bbun_checkbox.dart';
+import 'package:bbun/modules/bbun/presentation/widgets/bbun_delete.dart';
+import 'package:bbun/modules/bbun/presentation/widgets/bbun_displayfield.dart';
+import 'package:bbun/modules/bbun/presentation/widgets/bbun_inputfield.dart';
+import 'package:bbun/modules/bbun/presentation/widgets/bbun_pressable.dart';
 import 'package:bbun/routes/app_router.dart';
 import 'package:flutter/material.dart';
 
@@ -160,8 +160,10 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
                     name: dummyName,
                     studentId: dummyStudentId,
                     email: dummyEmail,
-                    issueDate: dummyIssueDate,
-                    profileImage: dummyProfileImage,
+                    issueDate: DateTime.parse("2025-01-28"),
+                    textColor: Color(0xFFFC639B),
+                    innerColor: Color(0xFFFFD6E5),
+                    outerColor: Color(0xFFFF9BBF),
                   ),
                   const SizedBox(height: 15),
 
@@ -170,23 +172,22 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
                     padding: const EdgeInsets.symmetric(horizontal: 36),
                     child: GestureDetector(
                       onTap: () {
-                        // 사진 변경 클릭 시 생기는 바텀 시트
-                        showModalBottomSheet(
-                            context: context,
-                            backgroundColor: Colors.transparent,
-                            builder: (BuildContext context) {
-                              return BbunBottomsheet();
-                            });
+                        // TODO: 뻔카드 색 변경되는 구현 필요
+                        print("캐릭터 변경");
                       },
-                      child: Text(
-                        '사진 변경',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 18,
-                          fontFamily: 'Pretendard',
-                          fontWeight: FontWeight.w500,
-                        ),
+                      child: Row(
+                        children: [
+                          Text(
+                            '캐릭터 변경',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 18,
+                              fontFamily: 'Pretendard',
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                   ),
