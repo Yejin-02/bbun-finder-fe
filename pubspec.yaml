@@ -1,20 +1,17 @@
 name: bbun
 description: "A new Flutter project."
 
-publish_to: 'none' 
-
+publish_to: "none"
 
 version: 1.0.0+1
 
 environment:
   sdk: ^3.6.1
 
-
 dependencies:
   flutter:
     sdk: flutter
 
-  
   cupertino_icons: ^1.0.8
   auto_route: ^9.3.0+1
   build_runner: ^2.4.14
@@ -35,9 +32,6 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
-
- 
   flutter_lints: ^5.0.0
   auto_route_generator: ^9.3.1
   injectable_generator: ^2.4.1
@@ -46,14 +40,27 @@ dev_dependencies:
   retrofit_generator: ^9.1.2
   json_serializable: ^6.8.0
 
+
 flutter:
   fonts:
+    - family: Pretendard
+      fonts:
+        - asset: assets/fonts/Pretendard-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/Pretendard-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/Pretendard-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/Pretendard-Light.ttf
+          weight: 300
     - family: HSSanTokki
       fonts:
         - asset: assets/fonts/HSSanTokki2.0(2024).ttf
   assets:
     - assets/icons/
     - .env
+
+
   uses-material-design: true
 
 flutter_gen:
