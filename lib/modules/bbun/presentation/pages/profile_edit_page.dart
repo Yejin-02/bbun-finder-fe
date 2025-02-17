@@ -1,5 +1,4 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:bbun/modules/bbun/presentation/widgets/bbun_bottomsheet.dart';
 import 'package:bbun/modules/bbun/presentation/widgets/bbun_card.dart';
 import 'package:bbun/modules/bbun/presentation/widgets/bbun_checkbox.dart';
 import 'package:bbun/modules/bbun/presentation/widgets/bbun_delete.dart';
@@ -8,6 +7,7 @@ import 'package:bbun/modules/bbun/presentation/widgets/bbun_inputfield.dart';
 import 'package:bbun/modules/bbun/presentation/widgets/bbun_pressable.dart';
 import 'package:bbun/routes/app_router.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 @RoutePage()
 class ProfileEditPage extends StatefulWidget {
@@ -172,11 +172,18 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
                     padding: const EdgeInsets.symmetric(horizontal: 36),
                     child: GestureDetector(
                       onTap: () {
-                        // TODO: 뻔카드 색 변경되는 구현 필요
+                        // TODO: 뻔카드 색 & 캐릭터 변경되는 구현 필요
                         print("캐릭터 변경");
                       },
                       child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
+                          SvgPicture.asset(
+                            "assets/icons/refresh.svg",
+                            width: 24,
+                          ),
+                          SizedBox(width: 10),
                           Text(
                             '캐릭터 변경',
                             textAlign: TextAlign.center,
