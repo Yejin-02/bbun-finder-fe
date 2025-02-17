@@ -16,5 +16,6 @@ class AppRouter extends RootStackRouter {
             page: MainRoute.page,
             initial: false,
             guards: [AuthGuard()]),
+        AutoRoute(path: '/profile-edit', page: ProfileEditRoute.page),
       ];
 }
