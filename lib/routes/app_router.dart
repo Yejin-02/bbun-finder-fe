@@ -23,7 +23,6 @@ class AppRouter extends RootStackRouter {
           page: ProfileEditRoute.page,
           initial: false,
         ),
-        AutoRoute(path: '/main', page: MainRoute.page, initial: false),
         AutoRoute(path: '/detail', page: DetailRoute.page, initial: false),
       ];
 }
