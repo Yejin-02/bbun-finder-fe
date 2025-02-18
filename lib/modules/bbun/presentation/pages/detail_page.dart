@@ -83,14 +83,28 @@ class _DetailPageState extends State<DetailPage>
                 Container(
                   width: screenWidth > 430 ? 430 : screenWidth,
                   padding: const EdgeInsets.symmetric(horizontal: 36),
-                  child: Text(
-                    '홍길동',
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 50,
-                      fontFamily: 'HSSanTokki',
-                      fontWeight: FontWeight.w400,
-                    ),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      Text(
+                        '홍길동',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 50,
+                          fontFamily: 'HSSanTokki',
+                          fontWeight: FontWeight.w400,
+                          height: 0,
+                        ),
+                      ),
+                      // TODO: 본인 디테일 페이지 일 때만 수정 버튼 보이게 처리
+                      SizedBox(width: 10),
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 4),
+                        child: SvgPicture.asset(
+                          "assets/icons/edit.svg",
+                        ),
+                      ),
+                    ],
                   ),
                 ),
                 SizedBox(height: 28),
