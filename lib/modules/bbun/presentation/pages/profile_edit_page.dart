@@ -116,10 +116,7 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
                               size: 30,
                             ),
                             onTap: () {
-                              // 디테일 -> 프로필 설정 이동(연필 버튼) 구현 전
-                              // 개발 일정 내에 이동 구현 되면 뒤로 가기도 케이스 두 개
-                              // TODO: 그땐 진짜 "뒤"로 가기 버튼으로 바꿔야함
-                              context.pushRoute(MainRoute());
+                              Navigator.of(context).pop();
                             },
                           ),
                         ]),

@@ -100,8 +100,13 @@ class _DetailPageState extends State<DetailPage>
                       SizedBox(width: 10),
                       Padding(
                         padding: const EdgeInsets.only(bottom: 4),
-                        child: SvgPicture.asset(
-                          "assets/icons/edit.svg",
+                        child: GestureDetector(
+                          onTap: () {
+                            context.pushRoute(ProfileEditRoute());
+                          },
+                          child: SvgPicture.asset(
+                            "assets/icons/edit.svg",
+                          ),
                         ),
                       ),
                     ],
