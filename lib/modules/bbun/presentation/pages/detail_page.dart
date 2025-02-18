@@ -33,7 +33,7 @@ class _DetailPageState extends State<DetailPage>
             child: Column(
               children: [
                 Container(
-                  width: screenWidth > 430 ? 430 : screenWidth,
+                  width: screenWidth > 475 ? 475 : screenWidth,
                   height: 257,
                   decoration: BoxDecoration(
                     gradient: LinearGradient(
@@ -60,7 +60,7 @@ class _DetailPageState extends State<DetailPage>
               child: Column(
                 children: [
                   Container(
-                    width: screenWidth > 430 ? 430 : screenWidth,
+                    width: screenWidth > 475 ? 475 : screenWidth,
                     height: 257,
                     decoration: BoxDecoration(
                         gradient: LinearGradient(
@@ -81,7 +81,7 @@ class _DetailPageState extends State<DetailPage>
 
                 // 학생 이름
                 Container(
-                  width: screenWidth > 430 ? 430 : screenWidth,
+                  width: screenWidth > 475 ? 475 : screenWidth,
                   padding: const EdgeInsets.symmetric(horizontal: 36),
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.end,
@@ -112,11 +112,11 @@ class _DetailPageState extends State<DetailPage>
                 // 노트 부분
                 BbunNotebook(),
                 SizedBox(
-                    height: 50 * (screenWidth > 430 ? (430 / 411.42) : scale)),
+                    height: 50 * (screenWidth > 475 ? (475 / 411.42) : scale)),
 
                 // 하단 버튼
                 Container(
-                  width: screenWidth > 430 ? 430 : screenWidth,
+                  width: screenWidth > 475 ? 475 : screenWidth,
                   padding:
                       const EdgeInsets.symmetric(vertical: 10, horizontal: 36),
                   child: Row(
